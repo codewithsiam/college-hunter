@@ -7,7 +7,7 @@ const Search = () => {
     const [search, setSearch] = useState(false);
 
     useEffect(() => {
-        const fetchToys = async () => {
+        const fetchColleges = async () => {
             try {
                 // for auto search with typing 
                 if(searchText){
@@ -23,7 +23,7 @@ const Search = () => {
             }
         };
 
-        fetchToys();
+        fetchColleges();
     }, [searchText]);
 
    
@@ -46,10 +46,10 @@ const Search = () => {
                 </label> */}
 
             </div>
-            <div className={`${search ? "block" : "hidden"} w-11/12 md:w-9/12 mx-auto my-2`}>
+            <div className={`${search || searchText !== '' ? "block" : "hidden"} w-11/12 md:w-9/12 mx-auto my-2`}>
 
                 {
-                    allColleges.map(({ collegeName, collegeId, collegeImage, sportsCategories, researchHistory, events, admissionDates }) =>
+                    allColleges?.map(({ collegeName, collegeId, collegeImage, sportsCategories, researchHistory, events, admissionDates }) =>
 
                         <div key={collegeId} className="card lg:card-side bg-base-100 shadow-xl">
                             <figure><img src={collegeImage} alt="collegeImage" /></figure>
