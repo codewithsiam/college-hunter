@@ -1,0 +1,56 @@
+[
+    {
+    "collegeId": "1",
+    "collegeName": "Dhaka University",
+    "collegeImage": "https://w0.peakpx.com/wallpaper/324/906/HD-wallpaper-curzon-hall-asia-bangladesh-castles-dhaka-dhaka-university-du-heritage-history-university-of-dhaka.jpg",
+    "admissionDates": ["2023-09-01", "2024-01-15"],
+    "events": ["Orientation Day", "Cultural Fest", "Sports Carnival"],
+    "researchHistory": "Dhaka University is one of the oldest and most prestigious universities in Bangladesh.",
+    "sportsCategories": ["Football", "Cricket", "Badminton"]
+  },
+  {
+    "collegeId": "2",
+    "collegeName": "Bangladesh University of Engineering and Technology (BUET)",
+    "collegeImage": "https://www.daily-sun.com/assets/news_images/2022/06/18/BUET-ds.jpg",
+    "admissionDates": ["2023-08-25", "2024-01-10"],
+    "events": ["Tech Expo", "Engineering Week", "BUET Cultural Night"],
+    "researchHistory": "BUET is renowned for its contributions to engineering and technology research.",
+    "sportsCategories": ["Cricket", "Swimming", "Table Tennis"]
+  },
+  {
+    "collegeId": "3",
+    "collegeName": "Rajshahi University",
+    "collegeImage": "https://images.prothomalo.com/prothomalo-english%2F2021-10%2Fac8b4e26-1340-43a3-a565-58acf608b6a7%2FRU.jpg?rect=0%2C0%2C1280%2C720&auto=format%2Ccompress&fmt=webp&format=webp&w=940&dpr=1.0",
+    "admissionDates": ["2023-09-10", "2024-01-20"],
+    "events": ["Freshers' Reception", "Science Fair", "Cultural Program"],
+    "researchHistory": "Rajshahi University has a strong academic and research tradition.",
+    "sportsCategories": ["Football", "Volleyball", "Chess"]
+  },
+  {
+    "collegeId": "4",
+    "collegeName": "Chittagong University",
+    "collegeImage": "https://prod-media-eng.dhakatribune.com/uploads/2013/07/CU.jpg",
+    "admissionDates": ["2023-09-05", "2024-01-18"],
+    "events": ["Orientation Program", "CU Annual Fest", "Sports Championship"],
+    "researchHistory": "Chittagong University fosters a culture of academic excellence and research.",
+    "sportsCategories": ["Football", "Cricket", "Basketball"]
+  },
+  {
+    "collegeId": "5",
+    "collegeName": "Jahangirnagar University",
+    "collegeImage": "https://www.bproperty.com/blog/wp-content/uploads/2021/07/vrr-1170x508.png",
+    "admissionDates": ["2023-08-30", "2024-01-22"],
+    "events": ["Freshers' Welcome", "Arts Festival", "Inter-Department Sports"],
+    "researchHistory": "Jahangirnagar University promotes research across various disciplines.",
+    "sportsCategories": ["Football", "Cricket", "Hockey"]
+  },
+  {
+    "collegeId": "6",
+    "collegeName": "Khulna University",
+    "collegeImage": "https://www.tbsnews.net/sites/default/files/styles/big_3/public/images/2022/11/29/khulna_university.jpg",
+    "admissionDates": ["2023-09-12", "2024-01-25"],
+    "events": ["Orientation Week", "Cultural Night", "Annual Sports Meet"],
+    "researchHistory": "Khulna University emphasizes research and innovation in its academic pursuits.",
+    "sportsCategories": ["Football", "Cricket", "Tennis"]
+  }
+]  
