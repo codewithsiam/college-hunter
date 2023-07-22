@@ -31,6 +31,9 @@ const Search = () => {
         setSearchText(searchText)
         setSearch(true);
     };
+
+    console.log('sdf',allColleges);
+
     return (
         <div>
             <div className="w-10/12 md:w-3/12 md:ml-auto mx-auto mt-4">
@@ -56,9 +59,17 @@ const Search = () => {
                             <div className="card-body">
                                 <h2 className="card-title">{collegeName}</h2>
                                 <p>Admission Date: {admissionDates}</p>
-                                <p>Events: {events}</p>
-                                <p>Research History: {researchHistory}</p>
-                                <p>Sports: {sportsCategories}</p>
+                                <div>
+                                    
+                                <div>Events: <ul>
+                                    {events?.map((collegeEvent, index) => <li key={index}>{collegeEvent?.eventName}</li>)}
+                                    </ul> </div>
+                                    
+                                <div>Sports: <ul>
+                                    {sportsCategories?.map((sport, index) => <li key={index}>{sport?.sportName}</li>)}
+                                    </ul> </div>
+                                </div>
+                                <p>Research History: {researchHistory} </p>
                                 <div className="card-actions justify-end">
                                     <button className="btn btn-primary">Details</button>
                                 </div>
