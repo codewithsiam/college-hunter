@@ -1,56 +1,177 @@
+
 [
-    {
+  {
     "collegeId": "1",
     "collegeName": "Dhaka University",
     "collegeImage": "https://w0.peakpx.com/wallpaper/324/906/HD-wallpaper-curzon-hall-asia-bangladesh-castles-dhaka-dhaka-university-du-heritage-history-university-of-dhaka.jpg",
     "admissionDates": ["2023-09-01", "2024-01-15"],
+    "admissionProcess": "Admission to Dhaka University is based on a rigorous entrance exam and academic performance. Candidates must submit their application online and appear for the entrance exam on the scheduled date.",
     "events": ["Orientation Day", "Cultural Fest", "Sports Carnival"],
+    "eventDetails": [
+      {
+        "eventName": "Orientation Day",
+        "eventDetails": "Orientation Day welcomes new students and provides an introduction to campus life and academic programs."
+      },
+      {
+        "eventName": "Cultural Fest",
+        "eventDetails": "Cultural Fest features various cultural performances, including music, dance, and drama."
+      },
+      {
+        "eventName": "Sports Carnival",
+        "eventDetails": "Sports Carnival includes inter-departmental sports competitions and friendly matches."
+      }
+    ],
     "researchHistory": "Dhaka University is one of the oldest and most prestigious universities in Bangladesh.",
-    "sportsCategories": ["Football", "Cricket", "Badminton"]
+    "sportsCategories": ["Football", "Cricket", "Badminton"],
+    "gallery": [
+      "https://example.com/dhaka-university-gallery-1.jpg",
+      "https://example.com/dhaka-university-gallery-2.jpg",
+      "https://example.com/dhaka-university-gallery-3.jpg"
+    ]
   },
   {
     "collegeId": "2",
     "collegeName": "Bangladesh University of Engineering and Technology (BUET)",
     "collegeImage": "https://www.daily-sun.com/assets/news_images/2022/06/18/BUET-ds.jpg",
     "admissionDates": ["2023-08-25", "2024-01-10"],
+    "admissionProcess": "Admission to BUET is highly competitive and requires a specialized engineering entrance exam. Eligible candidates must submit their application online and appear for the admission test, which includes written and practical exams.",
     "events": ["Tech Expo", "Engineering Week", "BUET Cultural Night"],
+    "eventDetails": [
+      {
+        "eventName": "Tech Expo",
+        "eventDetails": "Tech Expo showcases innovative projects and research initiatives by BUET students."
+      },
+      {
+        "eventName": "Engineering Week",
+        "eventDetails": "Engineering Week features workshops, seminars, and guest lectures on various engineering topics."
+      },
+      {
+        "eventName": "BUET Cultural Night",
+        "eventDetails": "BUET Cultural Night showcases various cultural performances, art, and traditional displays."
+      }
+    ],
     "researchHistory": "BUET is renowned for its contributions to engineering and technology research.",
-    "sportsCategories": ["Cricket", "Swimming", "Table Tennis"]
+    "sportsCategories": ["Cricket", "Swimming", "Table Tennis"],
+    "gallery": [
+      "https://example.com/buet-gallery-1.jpg",
+      "https://example.com/buet-gallery-2.jpg",
+      "https://example.com/buet-gallery-3.jpg"
+    ]
   },
   {
     "collegeId": "3",
     "collegeName": "Rajshahi University",
     "collegeImage": "https://images.prothomalo.com/prothomalo-english%2F2021-10%2Fac8b4e26-1340-43a3-a565-58acf608b6a7%2FRU.jpg?rect=0%2C0%2C1280%2C720&auto=format%2Ccompress&fmt=webp&format=webp&w=940&dpr=1.0",
     "admissionDates": ["2023-09-10", "2024-01-20"],
+    "admissionProcess": "Rajshahi University conducts an entrance exam, and the admission process also considers academic records. Candidates must apply online and attend the entrance exam as per the announced schedule.",
     "events": ["Freshers' Reception", "Science Fair", "Cultural Program"],
+    "eventDetails": [
+      {
+        "eventName": "Freshers' Reception",
+        "eventDetails": "Freshers' Reception welcomes new students and provides them with a warm welcome to the university."
+      },
+      {
+        "eventName": "Science Fair",
+        "eventDetails": "Science Fair showcases scientific projects and research conducted by students from various departments."
+      },
+      {
+        "eventName": "Cultural Program",
+        "eventDetails": "Cultural Program features performances from various cultural groups and celebrates diversity and artistic talents."
+      }
+    ],
     "researchHistory": "Rajshahi University has a strong academic and research tradition.",
-    "sportsCategories": ["Football", "Volleyball", "Chess"]
+    "sportsCategories": ["Football", "Volleyball", "Chess"],
+    "gallery": [
+      "https://example.com/rajshahi-university-gallery-1.jpg",
+      "https://example.com/rajshahi-university-gallery-2.jpg",
+      "https://example.com/rajshahi-university-gallery-3.jpg"
+    ]
   },
   {
     "collegeId": "4",
     "collegeName": "Chittagong University",
     "collegeImage": "https://prod-media-eng.dhakatribune.com/uploads/2013/07/CU.jpg",
     "admissionDates": ["2023-09-05", "2024-01-18"],
+    "admissionProcess": "Chittagong University's admission process includes a written test and a viva voce. Candidates must apply online and appear for the written test on the specified date.",
     "events": ["Orientation Program", "CU Annual Fest", "Sports Championship"],
+    "eventDetails": [
+      {
+        "eventName": "Orientation Program",
+        "eventDetails": "Orientation Program introduces new students to the university, its facilities, and the academic environment."
+      },
+      {
+        "eventName": "CU Annual Fest",
+        "eventDetails": "CU Annual Fest features various cultural events, music, dance, drama, and art performances."
+      },
+      {
+        "eventName": "Sports Championship",
+        "eventDetails": "Sports Championship includes competitive sports tournaments and fosters a spirit of healthy competition among students."
+      }
+    ],
     "researchHistory": "Chittagong University fosters a culture of academic excellence and research.",
-    "sportsCategories": ["Football", "Cricket", "Basketball"]
+    "sportsCategories": ["Football", "Cricket", "Basketball"],
+    "gallery": [
+      "https://example.com/chittagong-university-gallery-1.jpg",
+      "https://example.com/chittagong-university-gallery-2.jpg",
+      "https://example.com/chittagong-university-gallery-3.jpg"
+    ]
   },
   {
     "collegeId": "5",
     "collegeName": "Jahangirnagar University",
     "collegeImage": "https://www.bproperty.com/blog/wp-content/uploads/2021/07/vrr-1170x508.png",
     "admissionDates": ["2023-08-30", "2024-01-22"],
+    "admissionProcess": "Jahangirnagar University's admission process involves a written test and a viva voce. Candidates must apply online and appear for the admission test on the specified date.",
     "events": ["Freshers' Welcome", "Arts Festival", "Inter-Department Sports"],
+    "eventDetails": [
+      {
+        "eventName": "Freshers' Welcome",
+        "eventDetails": "Freshers' Welcome introduces new students to the university and its academic and extracurricular activities."
+      },
+      {
+        "eventName": "Arts Festival",
+        "eventDetails": "Arts Festival showcases artistic talents of students, including painting, photography, and creative writing."
+      },
+      {
+        "eventName": "Inter-Department Sports",
+        "eventDetails": "Inter-Department Sports include various sports competitions, promoting a healthy and active lifestyle."
+      }
+    ],
     "researchHistory": "Jahangirnagar University promotes research across various disciplines.",
-    "sportsCategories": ["Football", "Cricket", "Hockey"]
+    "sportsCategories": ["Football", "Cricket", "Hockey"],
+    "gallery": [
+      "https://example.com/jahangirnagar-university-gallery-1.jpg",
+      "https://example.com/jahangirnagar-university-gallery-2.jpg",
+      "https://example.com/jahangirnagar-university-gallery-3.jpg"
+    ]
   },
   {
     "collegeId": "6",
     "collegeName": "Khulna University",
     "collegeImage": "https://www.tbsnews.net/sites/default/files/styles/big_3/public/images/2022/11/29/khulna_university.jpg",
     "admissionDates": ["2023-09-12", "2024-01-25"],
+    "admissionProcess": "Khulna University conducts an admission test to select eligible candidates. Candidates must apply online and appear for the admission test as per the announced schedule.",
     "events": ["Orientation Week", "Cultural Night", "Annual Sports Meet"],
+    "eventDetails": [
+      {
+        "eventName": "Orientation Week",
+        "eventDetails": "Orientation Week introduces new students to the university, its faculties, and various support services."
+      },
+      {
+        "eventName": "Cultural Night",
+        "eventDetails": "Cultural Night features performances representing the cultural diversity of students and staff."
+      },
+      {
+        "eventName": "Annual Sports Meet",
+        "eventDetails": "Annual Sports Meet includes a range of sports activities, promoting physical fitness and teamwork."
+      }
+    ],
     "researchHistory": "Khulna University emphasizes research and innovation in its academic pursuits.",
-    "sportsCategories": ["Football", "Cricket", "Tennis"]
+    "sportsCategories": ["Football", "Cricket", "Tennis"],
+    "gallery": [
+      "https://example.com/khulna-university-gallery-1.jpg",
+      "https://example.com/khulna-university-gallery-2.jpg",
+      "https://example.com/khulna-university-gallery-3.jpg"
+    ]
   }
-]  
+]

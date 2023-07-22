@@ -28,7 +28,7 @@ async function run() {
     // await client.connect();
 
     // my codes here
-    const toysCollection = client.db("collegeHunter").collection("allColleges");
+    const collegeCollection = client.db("collegeHunter").collection("allColleges");
 
     const indexKey = { collegeName: 1 };
     const indexOptions = { name: 'nameSearch' };
@@ -48,8 +48,17 @@ async function run() {
 
       // limit
       const limit = parseInt(req.query.limit);
-      const cursor = toysCollection.find(query).limit(limit);
+      const cursor = collegeCollection.find(query).limit(limit);
       const result = await cursor.toArray();
+      res.send(result);
+    });
+
+    app.get("/college/:id", async (req, res) => {
+      const id = req.params.id;
+      console.log(id);
+      const query = { _id: new ObjectId(id) };
+      // here option can be added
+      const result = await collegeCollection.findOne(query);
       res.send(result);
     });
 

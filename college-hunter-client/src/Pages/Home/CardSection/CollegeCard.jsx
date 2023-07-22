@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CollegeCard = ({college}) => {
-  const {collegeName, collegeId, collegeImage, sportsCategories, researchHistory, events, admissionDates} = college || "";
+  const {collegeName, _id, collegeImage, sportsCategories, researchHistory, events, admissionDates} = college || "";
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure><img className='h-60 object-cover w-full' src={collegeImage} alt="collegeImage" /></figure>
@@ -15,7 +16,9 @@ const CollegeCard = ({college}) => {
         <p><span className='font-semibold'>Research History:</span> {researchHistory}</p>
         <p><span className='font-semibold'>Sports:</span> {sportsCategories}</p>
         <div className="card-actions justify-end">
+          <Link to={`/collegeDetails/${_id}`}>
           <button className="btn btn-primary">Details</button>
+          </Link>
           {/* <div className="badge badge-outline">Fashion</div> 
             <div className="badge badge-outline">Products</div> */}
         </div>
