@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
 
 const Search = () => {
-    const [allToys, setAllToys] = useState([]);
-    const [limit, setLimit] = useState(20);
+    const [allColleges, setAllColleges] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [loader, setLoader] = useState(true);
+    const [search, setSearch] = useState(false);
 
     useEffect(() => {
         const fetchToys = async () => {
             try {
-                const response = await fetch(`https://toy-trove-server.vercel.app/allToys?limit=${limit}&toyName=${searchText}`);
+                // for auto search with typing 
+                if(searchText){
+                    setSearch(true);
+                }
+
+                const response = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/allColleges?limit=1&collegeName=${searchText}`);
                 const data = await response.json();
-                setAllToys(data);
+                setAllColleges(data);
                 setLoader(false);
             } catch (error) {
                 console.error(error);
@@ -19,14 +24,12 @@ const Search = () => {
         };
 
         fetchToys();
-    }, [limit, searchText]);
+    }, [searchText]);
 
-    const handleLimit = () => {
-        setLimit(0);
-    };
-
+   
     const handleSearch = () => {
         setSearchText(searchText)
+        setSearch(true);
     };
     return (
         <div>
@@ -41,6 +44,28 @@ const Search = () => {
                 {/* <label className="label">
                     Search a college
                 </label> */}
+
+            </div>
+            <div className={`${search ? "block" : "hidden"} w-11/12 md:w-9/12 mx-auto my-2`}>
+
+                {
+                    allColleges.map(({ collegeName, collegeId, collegeImage, sportsCategories, researchHistory, events, admissionDates }) =>
+
+                        <div key={collegeId} className="card lg:card-side bg-base-100 shadow-xl">
+                            <figure><img src={collegeImage} alt="collegeImage" /></figure>
+                            <div className="card-body">
+                                <h2 className="card-title">{collegeName}</h2>
+                                <p>Admission Date: {admissionDates}</p>
+                                <p>Events: {events}</p>
+                                <p>Research History: {researchHistory}</p>
+                                <p>Sports: {sportsCategories}</p>
+                                <div className="card-actions justify-end">
+                                    <button className="btn btn-primary">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                }
             </div>
         </div>
     );
