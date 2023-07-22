@@ -3,8 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 
 const CollegeDetails = () => {
     const college = useLoaderData();
-    const { collegeName, collegeImage, admissionProcess, admissionDates, events } = college || "";
-    console.log('skfjk', college)
+    const { collegeName, collegeImage, admissionProcess, admissionDates, events, sportsCategories, researchWorks } = college || "";
     return (
         <div>
             <div className="relative overflow-hidden">
@@ -34,25 +33,30 @@ const CollegeDetails = () => {
                 <h1 className='text-4xl font-bold text-center my-10'>Events</h1>
                 {
                     events?.map((collegeEvent, index) => <div key={index}>
-                <p> <span className='font-semibold '>{collegeEvent?.eventName}:</span> {collegeEvent?.eventDetails} </p>                        
+                        <p> <span className='font-semibold '>{collegeEvent?.eventName}:</span> {collegeEvent?.eventDetails} </p>
                     </div>)
                 }
             </div>
             {/* research works  */}
             <div className='w-11/12 mx-auto'>
-                <h1 className='text-4xl font-bold text-center my-10'>Events</h1>
-                {
-                    events?.map((collegeEvent, index) => <div key={index}>
-                <p> <span className='font-semibold '>{collegeEvent?.eventName}:</span> {collegeEvent?.eventDetails} </p>                        
+                <h1 className='text-4xl font-bold text-center my-10'>Research History</h1>
+               <div className='flex flex-col md:flex-row gap-10 '>
+               {
+                    researchWorks?.map((research, index) => <div 
+                    key={index}
+                    >
+                        <p> <span className='font-semibold '>Department:</span> {research?.departmentName}  </p>
+                        <p> <span className='font-semibold '>Researchers:</span> {research?.researchers}  </p>
                     </div>)
                 }
+               </div>
             </div>
             {/* sports category  */}
             <div className='w-11/12 mx-auto'>
-                <h1 className='text-4xl font-bold text-center my-10'>Events</h1>
+                <h1 className='text-4xl font-bold text-center my-10'>Sports</h1>
                 {
-                    events?.map((collegeEvent, index) => <div key={index}>
-                <p> <span className='font-semibold '>{collegeEvent?.eventName}:</span> {collegeEvent?.eventDetails} </p>                        
+                    sportsCategories?.map((sport, index) => <div key={index}>
+                        <p> <span className='font-semibold '>{sport?.sportName}:</span> {sport?.sportDetails} </p>
                     </div>)
                 }
             </div>

@@ -21,35 +21,37 @@
     ],
     "researchWorks": [
       {
-        "researchers": "John Doe, Jane Smith",
+        "researchers": "John Smith, Emily Johnson",
         "departmentName": "Faculty of Science",
         "photo": "https://example.com/research-photo-1.jpg"
       },
       {
-        "researchers": "Alice Johnson, Bob Lee",
+        "researchers": "Sarah Wilson, Michael Brown",
         "departmentName": "Faculty of Arts",
         "photo": "https://example.com/research-photo-2.jpg"
       }
     ],
+    "researchHistory": "Dhaka University is one of the oldest and most prestigious universities in Bangladesh.",
     "sportsCategories": [
       {
         "sportName": "Football",
-        "sportDetails": "Football is a popular sport at Dhaka University. The university has a football team and conducts various football tournaments."
+        "sportDetails": "Football is a popular sport at Dhaka University, and the university's football team participates in various tournaments and matches."
       },
       {
         "sportName": "Cricket",
-        "sportDetails": "Cricket enthusiasts can participate in the university's cricket team and compete in inter-university matches."
+        "sportDetails": "Cricket enthusiasts can join the university's cricket team and participate in various matches and tournaments."
       },
       {
         "sportName": "Badminton",
-        "sportDetails": "Badminton courts are available for students to play friendly matches and participate in badminton competitions."
+        "sportDetails": "The university provides badminton facilities, and students can join the badminton club for practice and friendly games."
       }
     ],
     "gallery": [
       "https://example.com/dhaka-university-gallery-1.jpg",
       "https://example.com/dhaka-university-gallery-2.jpg",
       "https://example.com/dhaka-university-gallery-3.jpg"
-    ]
+    ],
+    "groupPhoto": "https://example.com/dhaka-university-group-photo.jpg"
   },
   {
     "collegeId": "2",
@@ -73,35 +75,37 @@
     ],
     "researchWorks": [
       {
-        "researchers": "Michael Brown, Emily Davis",
+        "researchers": "David Lee, Jennifer Smith",
         "departmentName": "Faculty of Engineering",
         "photo": "https://example.com/research-photo-3.jpg"
       },
       {
-        "researchers": "David Miller, Sarah Wilson",
+        "researchers": "Chris Brown, Jessica Johnson",
         "departmentName": "Faculty of Architecture",
         "photo": "https://example.com/research-photo-4.jpg"
       }
     ],
+    "researchHistory": "BUET is renowned for its contributions to engineering and technology research.",
     "sportsCategories": [
       {
         "sportName": "Cricket",
-        "sportDetails": "Cricket enthusiasts can participate in regular cricket tournaments and practice sessions organized by the university."
+        "sportDetails": "Cricket is a popular sport at BUET, and the university's cricket team participates in various tournaments and matches."
       },
       {
         "sportName": "Swimming",
-        "sportDetails": "BUET has a swimming pool where students can enjoy swimming and participate in swimming competitions."
+        "sportDetails": "BUET provides swimming facilities, and students can join the swimming club for practice and friendly competitions."
       },
       {
         "sportName": "Table Tennis",
-        "sportDetails": "Table tennis facilities are available for students to enjoy friendly matches and participate in table tennis competitions."
+        "sportDetails": "Table Tennis enthusiasts can join the university's table tennis club and participate in friendly matches and tournaments."
       }
     ],
     "gallery": [
       "https://example.com/buet-gallery-1.jpg",
       "https://example.com/buet-gallery-2.jpg",
       "https://example.com/buet-gallery-3.jpg"
-    ]
+    ],
+    "groupPhoto": "https://example.com/buet-group-photo.jpg"
   },
   {
     "collegeId": "3",
@@ -125,35 +129,37 @@
     ],
     "researchWorks": [
       {
-        "researchers": "Jessica Adams, Thomas Turner",
+        "researchers": "Alex Brown, Laura Johnson",
         "departmentName": "Faculty of Science",
         "photo": "https://example.com/research-photo-5.jpg"
       },
       {
-        "researchers": "Linda Morris, William Clark",
-        "departmentName": "Faculty of Social Science",
+        "researchers": "Daniel Lee, Olivia Smith",
+        "departmentName": "Faculty of Social Sciences",
         "photo": "https://example.com/research-photo-6.jpg"
       }
     ],
+    "researchHistory": "Rajshahi University has a strong academic and research tradition.",
     "sportsCategories": [
       {
         "sportName": "Football",
-        "sportDetails": "Football is a popular sport at Rajshahi University. The university has a football team and conducts various football tournaments."
+        "sportDetails": "Football is a popular sport at Rajshahi University, and the university's football team participates in various tournaments and matches."
       },
       {
         "sportName": "Volleyball",
-        "sportDetails": "Volleyball courts are available for students to play friendly matches and participate in volleyball competitions."
+        "sportDetails": "The university provides volleyball facilities, and students can join the volleyball team for practice and friendly games."
       },
       {
         "sportName": "Chess",
-        "sportDetails": "Chess enthusiasts can participate in chess tournaments and friendly matches organized by the university."
+        "sportDetails": "Chess enthusiasts can join the university's chess club and participate in friendly chess matches and competitions."
       }
     ],
     "gallery": [
       "https://example.com/rajshahi-university-gallery-1.jpg",
       "https://example.com/rajshahi-university-gallery-2.jpg",
       "https://example.com/rajshahi-university-gallery-3.jpg"
-    ]
+    ],
+    "groupPhoto": "https://example.com/rajshahi-university-group-photo.jpg"
   },
   {
     "collegeId": "4",
@@ -177,35 +183,37 @@
     ],
     "researchWorks": [
       {
-        "researchers": "Kevin Martinez, Laura Baker",
-        "departmentName": "Faculty of Business Administration",
+        "researchers": "Sophia Lee, William Smith",
+        "departmentName": "Faculty of Science",
         "photo": "https://example.com/research-photo-7.jpg"
       },
       {
-        "researchers": "Sophia White, Jason Hill",
-        "departmentName": "Faculty of Law",
+        "researchers": "Ethan Brown, Amelia Johnson",
+        "departmentName": "Faculty of Business Studies",
         "photo": "https://example.com/research-photo-8.jpg"
       }
     ],
+    "researchHistory": "Chittagong University fosters a culture of academic excellence and research.",
     "sportsCategories": [
       {
         "sportName": "Football",
-        "sportDetails": "Football is a popular sport at Chittagong University. The university has a football team and conducts various football tournaments."
+        "sportDetails": "Football is a popular sport at Chittagong University, and the university's football team participates in various tournaments and matches."
       },
       {
         "sportName": "Cricket",
-        "sportDetails": "Cricket enthusiasts can participate in regular cricket tournaments and practice sessions organized by the university."
+        "sportDetails": "Cricket enthusiasts can join the university's cricket team and participate in various matches and tournaments."
       },
       {
         "sportName": "Basketball",
-        "sportDetails": "Chittagong University has a basketball court where students can enjoy friendly matches and participate in basketball competitions."
+        "sportDetails": "The university provides basketball facilities, and students can join the basketball team for practice and friendly games."
       }
     ],
     "gallery": [
       "https://example.com/chittagong-university-gallery-1.jpg",
       "https://example.com/chittagong-university-gallery-2.jpg",
       "https://example.com/chittagong-university-gallery-3.jpg"
-    ]
+    ],
+    "groupPhoto": "https://example.com/chittagong-university-group-photo.jpg"
   },
   {
     "collegeId": "5",
@@ -229,35 +237,37 @@
     ],
     "researchWorks": [
       {
-        "researchers": "Sophie Green, Benjamin Cooper",
-        "departmentName": "Faculty of Fine Arts",
+        "researchers": "Aiden Lee, Natalie Smith",
+        "departmentName": "Faculty of Arts",
         "photo": "https://example.com/research-photo-9.jpg"
       },
       {
-        "researchers": "Olivia Murphy, Ethan Turner",
+        "researchers": "Ryan Brown, Mia Johnson",
         "departmentName": "Faculty of Biological Sciences",
         "photo": "https://example.com/research-photo-10.jpg"
       }
     ],
+    "researchHistory": "Jahangirnagar University promotes research across various disciplines.",
     "sportsCategories": [
       {
         "sportName": "Football",
-        "sportDetails": "Football is a popular sport at Jahangirnagar University. The university has a football team and conducts various football tournaments."
+        "sportDetails": "Football is a popular sport at Jahangirnagar University, and the university's football team participates in various tournaments and matches."
       },
       {
         "sportName": "Cricket",
-        "sportDetails": "Cricket enthusiasts can participate in regular cricket tournaments and practice sessions organized by the university."
+        "sportDetails": "Cricket enthusiasts can join the university's cricket team and participate in various matches and tournaments."
       },
       {
         "sportName": "Hockey",
-        "sportDetails": "Jahangirnagar University has a hockey field where students can enjoy friendly matches and participate in hockey competitions."
+        "sportDetails": "The university provides hockey facilities, and students can join the hockey team for practice and friendly games."
       }
     ],
     "gallery": [
       "https://example.com/jahangirnagar-university-gallery-1.jpg",
       "https://example.com/jahangirnagar-university-gallery-2.jpg",
       "https://example.com/jahangirnagar-university-gallery-3.jpg"
-    ]
+    ],
+    "groupPhoto": "https://example.com/jahangirnagar-university-group-photo.jpg"
   },
   {
     "collegeId": "6",
@@ -281,34 +291,37 @@
     ],
     "researchWorks": [
       {
-        "researchers": "Emily Taylor, Jacob Adams",
+        "researchers": "Emma Lee, Liam Smith",
         "departmentName": "Faculty of Engineering",
         "photo": "https://example.com/research-photo-11.jpg"
       },
       {
-        "researchers": "William Harris, Mia Martinez",
-        "departmentName": "Faculty of Science",
+        "researchers": "Ella Brown, Ethan Johnson",
+        "departmentName": "Faculty of Business and Management",
         "photo": "https://example.com/research-photo-12.jpg"
       }
     ],
+    "researchHistory": "Khulna University emphasizes research and innovation in its academic pursuits.",
     "sportsCategories": [
       {
         "sportName": "Football",
-        "sportDetails": "Football is a popular sport at Khulna University. The university has a football team and conducts various football tournaments."
+        "sportDetails": "Football is a popular sport at Khulna University, and the university's football team participates in various tournaments and matches."
       },
       {
         "sportName": "Cricket",
-        "sportDetails": "Cricket enthusiasts can participate in regular cricket tournaments and practice sessions organized by the university."
+        "sportDetails": "Cricket enthusiasts can join the university's cricket team and participate in various matches and tournaments."
       },
       {
         "sportName": "Tennis",
-        "sportDetails": "Khulna University has tennis courts where students can enjoy friendly matches and participate in tennis competitions."
+        "sportDetails": "The university provides tennis facilities, and students can join the tennis club for practice and friendly matches."
       }
     ],
     "gallery": [
       "https://example.com/khulna-university-gallery-1.jpg",
       "https://example.com/khulna-university-gallery-2.jpg",
       "https://example.com/khulna-university-gallery-3.jpg"
-    ]
+     
+    ],
+    "groupPhoto": "https://example.com/khulna-university-group-photo.jpg"
   }
 ]

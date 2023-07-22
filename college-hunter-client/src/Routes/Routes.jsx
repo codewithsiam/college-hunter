@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import CollegeDetails from "../Pages/Details/CollegeDetails";
+import Colleges from "../Pages/Colleges/Colleges";
 
 
 const router = createBrowserRouter([
@@ -26,9 +27,13 @@ const router = createBrowserRouter([
             {
                 path: 'collegeDetails/:id',
                 element: <CollegeDetails></CollegeDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/college/${params.id}`)
+                loader: ({params}) => fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/college/${params.id}`)
             },
-           
+           {
+            path: '/colleges',
+            element: <Colleges></Colleges>,
+            loader: ({params}) => fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/colleges`)
+           }
         ],
     }
 ])
