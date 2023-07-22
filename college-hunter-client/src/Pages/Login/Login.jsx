@@ -51,8 +51,8 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 // console.log(user);
-                const saveUser = { name: user?.displayName, email: user?.email, photoURL: user?.photoURL, role: 'student' }
-                fetch('https://sports-zone-server.vercel.app/users', {
+                const saveUser = { name: user?.displayName, email: user?.email, photoURL: user?.photoURL }
+                fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/users`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

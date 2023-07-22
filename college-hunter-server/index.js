@@ -29,6 +29,8 @@ async function run() {
 
     // my codes here
     const collegeCollection = client.db("collegeHunter").collection("allColleges");
+    const userCollection = client.db("collegeHunter").collection("users");
+    const admissionCollection = client.db("collegeHunter").collection("admission");
 
     const indexKey = { collegeName: 1 };
     const indexOptions = { name: 'nameSearch' };
@@ -61,6 +63,36 @@ async function run() {
       const result = await collegeCollection.findOne(query);
       res.send(result);
     });
+
+    app.post("/admissions", async (req, res) => {
+      const collegeData = req.body;
+      const result = await admissionCollection.insertOne(collegeData);
+      res.send(result);
+    });
+
+    app.get("/admissions", async (req, res) => {
+      // const email = req.body.email;
+      // const filter = { email: email };
+      // const sort = { createdAt: -1 };
+      // const result = await admissionCollection.find(filter).sort(sort).toArray();
+      const result = await admissionCollection.find().toArray();
+      res.send(result);
+    });
+
+    app.post("/users", async (req, res) => {
+      const user = req.body;
+      console.log(user);
+      const query = { email: user.email };
+
+      const existingUser = await userCollection.findOne(query);
+      if (existingUser) {
+        return res.send({ message: "User already exists" });
+      } else {
+        const result = await userCollection.insertOne(user);
+        res.send(result);
+      }
+    });
+
 
     // Send a ping to confirm a successful connection
     // await client.db("admin").command({ ping: 1 });

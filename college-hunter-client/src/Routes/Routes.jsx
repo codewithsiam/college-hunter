@@ -5,6 +5,9 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import CollegeDetails from "../Pages/Details/CollegeDetails";
 import Colleges from "../Pages/Colleges/Colleges";
+import Admission from "../Pages/Admission/Admission";
+import MyCollege from "../Pages/MyCollege/MyCollege";
+import Profile from "../Pages/Profile/Profile";
 
 
 const router = createBrowserRouter([
@@ -30,9 +33,22 @@ const router = createBrowserRouter([
                 loader: ({params}) => fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/college/${params.id}`)
             },
            {
-            path: '/colleges',
+            path: '/college',
             element: <Colleges></Colleges>,
             loader: () => fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/allColleges`)
+           },
+           {
+            path: '/admission',
+            element: <Admission></Admission>,
+            loader: () => fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/allColleges`)
+           },
+           {
+            path: '/myCollege',
+            element: <MyCollege></MyCollege>
+           },
+           {
+            path: '/profile',
+            element: <Profile></Profile>
            }
         ],
     }
