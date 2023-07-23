@@ -35,7 +35,7 @@ const MyCollege = () => {
         }
     }, [user]);
 
-    console.log('sfsdf', dbUser[0].name);
+    console.log('sfsdf', dbUser[0]);
 
     const handleFeedback = (cls) => {
         setSelectdCollege(cls);

@@ -168,9 +168,23 @@ async function run() {
       }
     });
 
-    app.get('/ratings:/', (req, res) => {
+    app.get("/ratings", async (req, res) => {
+      const collegeId = req.query.collegeId;
+      const query = { collegeId: collegeId };
+      const allRatings = await reviewCollection.find(query).toArray();
 
-    })
+      let ratingSum = 0;
+      allRatings.forEach((rating) => {
+        ratingSum += parseFloat(rating.rating);
+      });
+
+      let averageRating = 0;
+      if (allRatings.length > 0) {
+        averageRating = ratingSum / allRatings.length;
+      }
+
+      res.send({ averageRating });
+    });
 
     // Send a ping to confirm a successful connection
     // await client.db("admin").command({ ping: 1 });
