@@ -18,7 +18,7 @@ const Navbar = () => {
             <li><Link to='/admission'>Admission</Link></li>
            {user && <li><Link to='/myCollege'>My College</Link></li>}
 
-            { user && isAdmin && <li><Link to='/admin'>Admin Dashboard</Link></li>}
+            { user && isAdmin && <li><Link to='/admin/addCollege'>Admin Dashboard</Link></li>}
         </>
     );
     return (

@@ -1,6 +1,6 @@
 // Admission.js
 import React, { useContext, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Navigate, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -17,19 +17,21 @@ const Admission = () => {
 
   const [admission] = useAdmissions();
 
-
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleAdmission = (college) => {
+    // validation 
+    if (!user) {
+      navigate("/login", { state: { from: location } });
+      return
+    }
     setSelectdCollege(college);
     window.customModal.showModal();
   };
 
   const onSubmit = (data) => {
-    // validation 
-    if (!user) {
 
-      return
-    }
 
     console.log(data.image);
     const formData = new FormData();

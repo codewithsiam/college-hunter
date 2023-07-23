@@ -2,12 +2,14 @@
 import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useAdmin from '../../Hooks/useAdmin';
+import useUsers from '../../Hooks/useUsers';
+import useProfile from '../../Hooks/useProfile';
 
 const ManageUsers = () => {
-    // const [users, , refetch] = useUsers();
-    const users = [];
+    const [users, refetch] = useUsers();
     const [isAdmin, isAdminLoading] = useAdmin();
-    // console.log('admin',isAdmin);
+    const [profile] = useProfile();
+    console.log('admin', profile);
 
     const handleChangeRole = (user, role) => {
         // const token = localStorage.getItem('access-token');
@@ -77,6 +79,7 @@ const ManageUsers = () => {
             })
     }
 
+    
     return (
         <div>
             <h1 className="text-2xl font-semibold mb-8">Manage Users</h1>
@@ -95,7 +98,7 @@ const ManageUsers = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map((user, index) =>
+                            users?.map((user, index) =>
                                 <tr key={index}>
                                     <th>
                                         {index + 1}
@@ -112,36 +115,36 @@ const ManageUsers = () => {
                                                 {user?.email}
                                             </p>
                                         </div>
-                                        
+
                                     </td>
                                     <th>
-                                        {user?.role ? user.role : 'Student'}
+                                        {user?.role}
                                     </th>
 
                                     <th>
                                         <div className='float-right flex items-center'>
+
+
+                                            {user?._id !== profile[0]._id && <>
                                             <p>Make</p>
-                                            <>
-                                                <button disabled={user?.role === 'admin' ? 'disabled' : ''} onClick={() => handleChangeRole(user, "admin")} className=' btn btn-primary mx-2 rounded-lg p-3'> Admin</button>
-                                                <button disabled={user?.role === 'instructor' ? 'disabled' : ''} onClick={() => handleChangeRole(user, "instructor")} className=' btn btn-primary mx-2 rounded-lg p-3'> Instructor</button>
 
+                                                {
+                                                    user?.role === "admin"
+                                                        ? <button
 
-                                            </>
-                                            {/* below code is much better : because here you can make admin/instructor/student any time. promote and demoting will be much better and easy.  */}
-                                            {/* {user?.role === "admin" && <>
-                                                <button onClick={() => handleChangeRole(user, "student")} className=' btn-primary  mx-2 rounded-lg p-3'> Student</button>
-                                                <button onClick={() => handleChangeRole(user, "instructor")} className=' btn-primary  mx-2 rounded-lg p-3'> Instructor</button>
-                                            </>}
-                                            {user?.role === "instructor" && <>
-                                                <button onClick={() => handleChangeRole(user, "admin")} className=' btn-primary  mx-2 rounded-lg p-3'> Admin</button>
-                                                <button onClick={() => handleChangeRole(user, "student")} className=' btn-primary  mx-2 rounded-lg p-3'> Student</button>
+                                                            onClick={() => handleChangeRole(user, "regularUser")} className=' btn-primary w-32  mx-2 rounded-lg p-3'> Regular User</button>
+                                                        :
+                                                        <button
+                                                            onClick={() => handleChangeRole(user, "admin")} className=' btn-primary w-32 mx-2 rounded-lg p-3'> Admin </button>
+                                                }
 
                                             </>}
-                                            { user?.role === "student" && <>
-                                                <button onClick={() => handleChangeRole(user, "admin")} className=' btn-primary  mx-2 rounded-lg p-3'> Admin</button>
-                                                <button onClick={() => handleChangeRole(user, "instructor")} className=' btn-primary  mx-2 rounded-lg p-3'> Instructor</button>
-                                            </>} */}
-                                            <button onClick={() => handleDeleteUser(user)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button>
+
+
+                                            {user?._id !== profile[0]._id && <>
+                                                <button onClick={() => handleDeleteUser(user)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button>
+                                                </>
+                                            }
 
                                         </div>
 

@@ -14,6 +14,7 @@ import AdminRoute from "./AdminRoute";
 import DashboardLayout from "../Layout/DashboardLayout";
 import ManageUsers from "../Pages/AdminPanel/ManageUsers";
 import ResetPassword from "../Pages/Login/ResetPassword";
+import AddCollege from "../Pages/AdminPanel/AddCollege";
 
 
 const router = createBrowserRouter([
@@ -26,15 +27,15 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/login',
+                path: 'login',
                 element: <Login></Login>
             },
             {
-                path: '/reset',
+                path: 'reset',
                 element: <ResetPassword></ResetPassword>
             },
             {
-                path: '/register',
+                path: 'register',
                 element: <Register></Register>
             },
             {
@@ -43,33 +44,37 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/college/${params.id}`)
             },
             {
-                path: '/college',
+                path: 'college',
                 element: <Colleges></Colleges>,
                 loader: () => fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/allColleges`)
             },
             {
-                path: '/admission',
+                path: 'admission',
                 element: <Admission></Admission>,
                 loader: () => fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/allColleges`)
             },
             {
-                path: '/myCollege',
+                path: 'myCollege',
                 element: <PrivateRoute><MyCollege></MyCollege></PrivateRoute>
             },
             {
-                path: '/admin',
+                path: 'admin',
                 element: <Dashboard></Dashboard>
             },
             {
-                path: '/profile',
+                path: 'profile',
                 element: <Profile></Profile>
             }
         ],
     },
     {
-        path: 'dashboard',
+        path: 'admin',
         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children: [
+            {
+                path: 'addCollege',
+                element: <AddCollege></AddCollege>,
+            },
             {
                 path: 'manageUsers',
                 element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>

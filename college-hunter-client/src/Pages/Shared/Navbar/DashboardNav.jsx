@@ -26,10 +26,10 @@ const DashboardNav = () => {
                 </li>
                 <li>
                     <NavLink
-                        to="addClass"
+                        to="addCollege"
                         className="text-white hover:bg-indigo-400 w-full rounded-lg px-4 py-2 mb-2 inline-block text-base leading-loose"
                     >
-                        Add Class
+                        Add College
                     </NavLink>
                 </li>
               
@@ -47,20 +47,13 @@ const DashboardNav = () => {
                        Go to  Home
                     </NavLink>
                 </li>
-                <li>
-                    <NavLink
-                        to="/allClasses"
-                        className="text-white hover:bg-indigo-400 w-full rounded-lg px-4 py-2 mb-2 inline-block text-base leading-loose"
-                    >
-                     Classes
-                    </NavLink>
-                </li>
+             
             
         </>
     );
     return (
         <div
-            className="w-72 bg-dark-purple h-full p-5  pt-8 relative"
+            className="w-72 bg-indigo-950 h-full p-5  pt-8 relative"
         >
             <div className="items-center">
                 <h1

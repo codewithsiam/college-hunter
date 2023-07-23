@@ -36,7 +36,9 @@ const Register = () => {
             const saveUser = { 
               name: data.name, 
               email: data.email , 
-              photoURL: data.photoURL, 
+              photoURL: data.photoURL,
+              university: '', 
+              address: '', 
               role: 'regularUser' };
               // console.log('saved user',saveUser);
              

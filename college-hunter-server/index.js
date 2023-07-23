@@ -110,6 +110,11 @@ async function run() {
       res.send(result);
     });
 
+    app.get("/manageUsers", async (req, res) => {
+      const result = await userCollection.find().toArray();
+      res.send(result);
+    });
+
     app.put("/users/profile", async (req, res) => {
       const email = req.query.email;
       console.log(email);
@@ -139,7 +144,7 @@ async function run() {
 
     app.post("/users", async (req, res) => {
       const user = req.body;
-      console.log(user);
+      // console.log(user);
       const query = { email: user.email };
 
       const existingUser = await userCollection.findOne(query);
@@ -149,6 +154,20 @@ async function run() {
         const result = await userCollection.insertOne(user);
         res.send(result);
       }
+    });
+
+    app.patch("/users/role", async (req, res) => {
+      const id = req.query.id;
+      const role = req.query.role;
+      const filter = { _id: new ObjectId(id) };
+      const updateDoc = {
+        $set: {
+          role: `${role}`,
+        },
+      };
+
+      const result = await userCollection.updateOne(filter, updateDoc);
+      res.send(result);
     });
 
     // Assuming you have already connected to the MongoDB database and initialized `reviewCollection`
