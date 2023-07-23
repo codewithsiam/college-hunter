@@ -27,7 +27,7 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">College Hunter</a>
+                <Link to="/" className="btn btn-ghost normal-case text-xl">College Hunter</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -39,7 +39,7 @@ const Navbar = () => {
                     <>
                         {user?.photoURL && (
                             <>
-                                <Link to="/profile" className='font-semibold mr-5 text-lg'>{user?.displayName}</Link>
+                                <Link to="/profile" className='font-semibold mr-5 text-sm lg:text-lg'>{user?.displayName}</Link>
                                 <img title={user?.displayName}
                                     className="h-12 w-12 rounded-full border-2 border-primary"
                                     src={user?.photoURL}

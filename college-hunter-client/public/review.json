@@ -1,0 +1,39 @@
+[
+    {
+      "collegeId": "1",
+      "collegeName": "Dhaka University",
+      "review": "Great college with excellent facilities.",
+      "rating": 4.5
+    },
+    {
+      "collegeId": "2",
+      "collegeName": "Buet",
+      "review": "The professors are knowledgeable and supportive.",
+      "rating": 4.0
+    },
+    {
+      "collegeId": "3",
+      "collegeName": "PQR Institute",
+      "review": "The campus environment is beautiful.",
+      "rating": 4.2
+    },
+    {
+      "collegeId": "4",
+      "collegeName": "LMN College of Engineering",
+      "review": "The placements are good, and the labs are well-equipped.",
+      "rating": 3.8
+    },
+    {
+      "collegeId": "5",
+      "collegeName": "DEF Arts College",
+      "review": "The arts programs are diverse and engaging.",
+      "rating": 4.6
+    },
+    {
+      "collegeId": "6",
+      "collegeName": "GHI Medical School",
+      "review": "The medical facilities are top-notch.",
+      "rating": 4.9
+    }
+  ]
+  

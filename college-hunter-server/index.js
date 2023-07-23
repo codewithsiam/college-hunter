@@ -4,7 +4,6 @@ const cors = require("cors");
 require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 5000;
-
 // middleware
 app.use(cors());
 app.use(express.json());
@@ -35,6 +34,7 @@ async function run() {
     const admissionCollection = client
       .db("collegeHunter")
       .collection("admission");
+    const reviewCollection = client.db("collegeHunter").collection("reviews");
 
     const indexKey = { collegeName: 1 };
     const indexOptions = { name: "nameSearch" };
@@ -111,9 +111,12 @@ async function run() {
 
       const result = await userCollection.updateOne(filter, updateDoc);
       if (result.modifiedCount > 0) {
-        return res.send({ success: true, message: "Profile updated successfully." });
+        return res.send({
+          success: true,
+          message: "Profile updated successfully.",
+        });
       } else {
-       return res
+        return res
           .status(500)
           .send({ success: false, message: "Failed to update profile." });
       }
@@ -132,6 +135,42 @@ async function run() {
         res.send(result);
       }
     });
+
+    // Assuming you have already connected to the MongoDB database and initialized `reviewCollection`
+
+    app.get("/reviews", async (req, res) => {
+      try {
+        const reviews = await reviewCollection.find().toArray();
+        return res.send(reviews);
+      } catch (error) {
+        console.error(error);
+        return res.status(500).send("Internal Server Error");
+      }
+    });
+
+    app.post("/review", async (req, res) => {
+      const data = req.body;
+
+      const filter = { candidateEmail: data?.candidateEmail };
+      const exist = await reviewCollection.findOne(filter);
+      if (exist) {
+        const updateDoc = {
+          $set: {
+            review: `${data?.review}`,
+            rating: `${data?.rating}`,
+          },
+        };
+        const result = await reviewCollection.updateOne(filter, updateDoc);
+        res.send(result);
+      } else {
+        const result = await reviewCollection.insertOne(data);
+        res.send(result);
+      }
+    });
+
+    app.get('/ratings:/', (req, res) => {
+
+    })
 
     // Send a ping to confirm a successful connection
     // await client.db("admin").command({ ping: 1 });

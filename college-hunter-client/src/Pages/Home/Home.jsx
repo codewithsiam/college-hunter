@@ -2,6 +2,7 @@ import React from 'react';
 import Search from './Search/Search';
 import CardSection from './CardSection/CardSection';
 import PhotoGallery from './PhotoGallery/PhotoGallery';
+import Reviews from './Reviews/Reviews';
 
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
             <CardSection></CardSection>
             <h1 className='text-center font-bold text-4xl mt-28 mb-10'>Graduate's Group Pictures</h1>
             <PhotoGallery></PhotoGallery>
+            <Reviews></Reviews>
         </div>
     );
 };
