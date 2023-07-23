@@ -13,6 +13,7 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import DashboardLayout from "../Layout/DashboardLayout";
 import ManageUsers from "../Pages/AdminPanel/ManageUsers";
+import ResetPassword from "../Pages/Login/ResetPassword";
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/reset',
+                element: <ResetPassword></ResetPassword>
             },
             {
                 path: '/register',

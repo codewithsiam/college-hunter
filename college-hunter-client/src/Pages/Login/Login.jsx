@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -83,6 +83,8 @@ const Login = () => {
             });
     }
 
+ 
+
     // toggle password visibility 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -127,10 +129,14 @@ const Login = () => {
                             {errors.password?.type === 'required' && <p className="text-red-600 text-sm">Password field is required</p>}
                         </div>
 
+                        
+
                         <button className='w-full my-5 py-2 bg-primary shadow-lg shadow-indigo-500/50 hover:shadow-indigo-400/40 text-white font-semibold rounded-lg'>Log In</button>
 
 
                     </form>
+                    <p className='text-center'>Forget password? Please<Link to="/reset" className='btn btn-link'>Reset</Link></p>
+
                     <p className='text-gray-800 text-center'>Don't have an account? Please
                         <Link to="/register" className='text-primary'> Register</Link> </p>
                     <div className="divider">OR</div>
