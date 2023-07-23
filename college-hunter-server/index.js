@@ -28,24 +28,29 @@ async function run() {
     // await client.connect();
 
     // my codes here
-    const collegeCollection = client.db("collegeHunter").collection("allColleges");
+    const collegeCollection = client
+      .db("collegeHunter")
+      .collection("allColleges");
     const userCollection = client.db("collegeHunter").collection("users");
-    const admissionCollection = client.db("collegeHunter").collection("admission");
+    const admissionCollection = client
+      .db("collegeHunter")
+      .collection("admission");
 
     const indexKey = { collegeName: 1 };
-    const indexOptions = { name: 'nameSearch' };
-    
+    const indexOptions = { name: "nameSearch" };
+
     // const result =  await toysCollection.createIndex(indexKey, indexOptions);
-   
 
     // operations
-    // all college with search  
+    // all college with search
     app.get("/allColleges", async (req, res) => {
       let query = {};
-      
-      // search 
+
+      // search
       if (req.query?.collegeName) {
-        query = { collegeName: { $regex: req.query?.collegeName, $options: "i" } };
+        query = {
+          collegeName: { $regex: req.query?.collegeName, $options: "i" },
+        };
       }
 
       // limit
@@ -71,12 +76,47 @@ async function run() {
     });
 
     app.get("/admissions", async (req, res) => {
-      // const email = req.body.email;
-      // const filter = { email: email };
-      // const sort = { createdAt: -1 };
-      // const result = await admissionCollection.find(filter).sort(sort).toArray();
-      const result = await admissionCollection.find().toArray();
+      const email = req.query.email;
+      console.log(email);
+      const filter = { candidateEmail: email };
+      const sort = { createdAt: -1 };
+      const result = await admissionCollection
+        .find(filter)
+        .sort(sort)
+        .toArray();
+      // const result = await admissionCollection.find(filter).toArray();
       res.send(result);
+    });
+
+    app.get("/users", async (req, res) => {
+      const email = req.query.email;
+      const query = { email: email };
+      const result = await userCollection.find(query).toArray();
+      res.send(result);
+    });
+
+    app.put("/users/profile", async (req, res) => {
+      const email = req.query.email;
+      console.log(email);
+      const data = req.body.userData;
+      console.log(data);
+      const filter = { email: email };
+      const updateDoc = {
+        $set: {
+          name: data?.name,
+          university: data?.university,
+          address: data?.address,
+        },
+      };
+
+      const result = await userCollection.updateOne(filter, updateDoc);
+      if (result.modifiedCount > 0) {
+        return res.send({ success: true, message: "Profile updated successfully." });
+      } else {
+       return res
+          .status(500)
+          .send({ success: false, message: "Failed to update profile." });
+      }
     });
 
     app.post("/users", async (req, res) => {
@@ -92,7 +132,6 @@ async function run() {
         res.send(result);
       }
     });
-
 
     // Send a ping to confirm a successful connection
     // await client.db("admin").command({ ping: 1 });
