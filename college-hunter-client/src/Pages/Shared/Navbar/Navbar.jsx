@@ -2,18 +2,23 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import { FaSignOutAlt } from "react-icons/fa";
+import useAdmin from '../../../Hooks/useAdmin';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [isAdmin] = useAdmin();
     const handleLogout = () => {
         logOut();
     }
+
     const navItems = (
         <>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/college">College</Link></li>
             <li><Link to='/admission'>Admission</Link></li>
-            <li><Link to='/myCollege'>My College</Link></li>
+           {user && <li><Link to='/myCollege'>My College</Link></li>}
+
+            { user && isAdmin && <li><Link to='/admin'>Admin Dashboard</Link></li>}
         </>
     );
     return (

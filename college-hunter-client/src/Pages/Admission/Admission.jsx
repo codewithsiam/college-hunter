@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Providers/AuthProvider';
+import useAdmissions from '../../Hooks/useAdmissions';
 
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 
@@ -14,12 +15,22 @@ const Admission = () => {
   const { handleSubmit, register, reset } = useForm();
   const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
 
+  const [admission] = useAdmissions();
+
+
+
   const handleAdmission = (college) => {
     setSelectdCollege(college);
     window.customModal.showModal();
   };
 
   const onSubmit = (data) => {
+    // validation 
+    if (!user) {
+
+      return
+    }
+
     console.log(data.image);
     const formData = new FormData();
     formData.append('image', data.image[0]);
@@ -82,7 +93,7 @@ const Admission = () => {
       <div>
         {colleges.map((college, index) => (
           <div key={index}>
-            <button
+            <button disabled={admission.find(adm => adm?.collegeId == college?.collegeId)}
               className="btn btn-sm btn-info w-full mb-1"
               onClick={() => handleAdmission(college)}
             >

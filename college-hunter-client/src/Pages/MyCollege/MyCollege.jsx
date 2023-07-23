@@ -54,7 +54,7 @@ const MyCollege = () => {
             review: data.review,
             rating: data.rating,
         };
-      
+
 
 
         fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/review`, {
@@ -89,25 +89,26 @@ const MyCollege = () => {
             <h1 className="text-4xl font-bold text-center mt-5 mb-16 ">My Colleges</h1>
             {!loader && user && applications.length > 0 ? (
                 <div className='w-11/12 mx-auto'>
-                    {applications.map((app, index) => (
-                        <div key={app?._id}>
-                            <div className="overflow-x-auto">
-                                <table className="table">
-                                    {/* head */}
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                Sl. Number
-                                            </th>
-                                            <th>College Name & Subject</th>
-                                            <th>Candidate Name</th>
-                                            <th>Candidate Contact</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {/* row 1 */}
-                                        <tr>
+
+                    <div>
+                        <div className="overflow-x-auto">
+                            <table className="table">
+                                {/* head */}
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Sl. Number
+                                        </th>
+                                        <th>College Name & Subject</th>
+                                        <th>Candidate Name</th>
+                                        <th>Candidate Contact</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                {applications.map((app, index) => (
+                                       <tr  key={app?._id}>
                                             <th>
                                                 {index + 1}
                                             </th>
@@ -134,14 +135,14 @@ const MyCollege = () => {
                                                 <button onClick={() => handleFeedback(app)} className="btn btn-ghost btn-xs">Review & Rating</button>
                                             </th>
                                         </tr>
-
+   ))}
                                     </tbody>
 
 
                                 </table>
-                            </div>
                         </div>
-                    ))}
+                    </div>
+                 
                 </div>
             ) : loader ? (
                 <p>Loading...</p>

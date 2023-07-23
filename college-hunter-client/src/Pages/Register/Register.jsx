@@ -37,11 +37,11 @@ const Register = () => {
               name: data.name, 
               email: data.email , 
               photoURL: data.photoURL, 
-              role: 'student' };
+              role: 'regularUser' };
               // console.log('saved user',saveUser);
              
 
-            fetch('https://sports-zone-server.vercel.app/users', {
+            fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/users`, {
               method: 'POST',
               headers: {
                 'content-type': 'application/json'

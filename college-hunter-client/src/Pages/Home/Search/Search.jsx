@@ -32,7 +32,7 @@ const Search = () => {
         setSearch(true);
     };
 
-    console.log('sdf',allColleges);
+    // console.log('sdf',allColleges);
 
     return (
         <div>

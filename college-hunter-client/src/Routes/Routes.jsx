@@ -8,6 +8,11 @@ import Colleges from "../Pages/Colleges/Colleges";
 import Admission from "../Pages/Admission/Admission";
 import MyCollege from "../Pages/MyCollege/MyCollege";
 import Profile from "../Pages/Profile/Profile";
+import Dashboard from "../Layout/DashboardLayout";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
+import DashboardLayout from "../Layout/DashboardLayout";
+import ManageUsers from "../Pages/AdminPanel/ManageUsers";
 
 
 const router = createBrowserRouter([
@@ -29,28 +34,42 @@ const router = createBrowserRouter([
             },
             {
                 path: 'collegeDetails/:id',
-                element: <CollegeDetails></CollegeDetails>,
-                loader: ({params}) => fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/college/${params.id}`)
+                element: <PrivateRoute><CollegeDetails></CollegeDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/college/${params.id}`)
             },
-           {
-            path: '/college',
-            element: <Colleges></Colleges>,
-            loader: () => fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/allColleges`)
-           },
-           {
-            path: '/admission',
-            element: <Admission></Admission>,
-            loader: () => fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/allColleges`)
-           },
-           {
-            path: '/myCollege',
-            element: <MyCollege></MyCollege>
-           },
-           {
-            path: '/profile',
-            element: <Profile></Profile>
-           }
+            {
+                path: '/college',
+                element: <Colleges></Colleges>,
+                loader: () => fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/allColleges`)
+            },
+            {
+                path: '/admission',
+                element: <Admission></Admission>,
+                loader: () => fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/allColleges`)
+            },
+            {
+                path: '/myCollege',
+                element: <PrivateRoute><MyCollege></MyCollege></PrivateRoute>
+            },
+            {
+                path: '/admin',
+                element: <Dashboard></Dashboard>
+            },
+            {
+                path: '/profile',
+                element: <Profile></Profile>
+            }
         ],
+    },
+    {
+        path: 'dashboard',
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        children: [
+            {
+                path: 'manageUsers',
+                element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
+            },
+        ]
     }
 ])
 

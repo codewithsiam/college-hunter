@@ -7,7 +7,7 @@ import "@smastrom/react-rating/style.css";
 const Reviews = () => {
 
     const [reviews, loading] = useReviews();
-    console.log('Loading reviews', reviews);
+    // console.log('Loading reviews', reviews);
 
     return (
         <section className="bg-gray-200 py-12 mt-20">
