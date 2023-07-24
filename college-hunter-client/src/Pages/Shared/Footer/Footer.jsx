@@ -10,20 +10,16 @@ const Footer = () => {
                         <div className="mb-10 w-full">
                             <Link to="/" className="mb-6 inline-block">
                                 <img
-                                    src="/path/to/logo" // Replace with the path to your logo image
+                                    src="/logo.jpg"
                                     alt="College Hunter Logo"
                                     className="h-9 w-full"
                                 />
                             </Link>
                             <p className="text-body-color mb-7 text-base">
-                                <span className="font-semibold">College Hunter:</span> Unleash the magic of play with our curated collection of quality toys. Ignite imagination, learning, and endless fun for children of all ages.
+                                <span className="font-semibold text-xl">College Hunter:</span>  Your ultimate college search companion. Simplifying the process, providing a curated collection of quality colleges, helping students find their perfect match.
                             </p>
                         </div>
                     </div>
-
-                    {/* Add other footer sections as needed (Quick Links, Contact Us, Follow Us On) */}
-                    {/* Replace the URLs in the links with your actual URLs */}
-                    {/* Replace the social media links with your actual social media profiles */}
 
                     <div className="w-full px-4 sm:w-1/2 lg:w-3/12">
                         <div className="mb-10 w-full">
@@ -31,7 +27,7 @@ const Footer = () => {
                             <ul>
                                 <li>
                                     <Link
-                                        to="/premium-support"
+                                        to="https://www.facebook.com/abusayedalsiam69"
                                         className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose"
                                     >
                                         Premium Support
@@ -56,17 +52,17 @@ const Footer = () => {
                             <ul>
                                 <li>
                                     <span className="text-body-color mb-2 inline-block text-base leading-loose">
-                                        Email: contact@collegehunter.com
+                                        Email: abusayedalsiam2023@gmail.com
                                     </span>
                                 </li>
                                 <li>
                                     <span className="text-body-color mb-2 inline-block text-base leading-loose">
-                                        Phone: +1 123-456-7890
+                                        Phone: +8801580525007
                                     </span>
                                 </li>
                                 <li>
                                     <span className="text-body-color mb-2 inline-block text-base leading-loose">
-                                        Address: 123 College Street, City, Country
+                                        Address: Joypurhat, Rajshahi, Bangladesh
                                     </span>
                                 </li>
                             </ul>
@@ -87,7 +83,7 @@ const Footer = () => {
                                         viewBox="0 0 8 16"
                                         className="fill-current"
                                     >
-                                        {/* Add Facebook icon */}
+                                        {/*  Facebook icon */}
                                     </svg>
                                 </Link>
                                 <Link
@@ -100,11 +96,11 @@ const Footer = () => {
                                         viewBox="0 0 16 12"
                                         className="fill-current"
                                     >
-                                        {/* Add Twitter icon */}
+                                        {/*  Twitter icon */}
                                     </svg>
                                 </Link>
 
-                                {/* Add more social media icons as needed */}
+                               
                             </div>
                             <p className="text-body-color text-base">&copy; {new Date().getFullYear()} College Hunter</p>
                         </div>
