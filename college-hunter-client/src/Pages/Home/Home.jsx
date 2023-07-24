@@ -3,6 +3,7 @@ import Search from './Search/Search';
 import CardSection from './CardSection/CardSection';
 import PhotoGallery from './PhotoGallery/PhotoGallery';
 import Reviews from './Reviews/Reviews';
+import ResearchPapers from './ResearchPapers/ResearchPapers';
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
             <CardSection></CardSection>
             <h1 className='text-center font-bold text-4xl mt-28 mb-10'>Graduate's Group Pictures</h1>
             <PhotoGallery></PhotoGallery>
+            <ResearchPapers></ResearchPapers>
             <Reviews></Reviews>
         </div>
     );

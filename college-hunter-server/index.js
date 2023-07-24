@@ -35,6 +35,7 @@ async function run() {
       .db("collegeHunter")
       .collection("admission");
     const reviewCollection = client.db("collegeHunter").collection("reviews");
+    const researchsCollection = client.db("collegeHunter").collection("researchPapers");
 
     const indexKey = { collegeName: 1 };
     const indexOptions = { name: "nameSearch" };
@@ -114,7 +115,7 @@ async function run() {
       const result = await userCollection.find().toArray();
       res.send(result);
     });
-
+    
     app.put("/users/profile", async (req, res) => {
       const email = req.query.email;
       console.log(email);
@@ -128,7 +129,7 @@ async function run() {
           address: data?.address,
         },
       };
-
+      
       const result = await userCollection.updateOne(filter, updateDoc);
       if (result.modifiedCount > 0) {
         return res.send({
@@ -137,16 +138,16 @@ async function run() {
         });
       } else {
         return res
-          .status(500)
-          .send({ success: false, message: "Failed to update profile." });
+        .status(500)
+        .send({ success: false, message: "Failed to update profile." });
       }
     });
-
+    
     app.post("/users", async (req, res) => {
       const user = req.body;
       // console.log(user);
       const query = { email: user.email };
-
+      
       const existingUser = await userCollection.findOne(query);
       if (existingUser) {
         return res.send({ message: "User already exists" });
@@ -155,7 +156,7 @@ async function run() {
         res.send(result);
       }
     });
-
+    
     app.patch("/users/role", async (req, res) => {
       const id = req.query.id;
       const role = req.query.role;
@@ -165,21 +166,26 @@ async function run() {
           role: `${role}`,
         },
       };
-
+      
       const result = await userCollection.updateOne(filter, updateDoc);
       res.send(result);
     });
-
+    
     app.delete("/users", async (req, res) => {
       const id = req.query.id;
       const query = { _id: new ObjectId(id) };
       const result = await userCollection.deleteOne(query);
       res.send(result);
     });
+    
+    app.get("/researchPapers", async (req, res) => {
+      const result = await researchsCollection.find().toArray();
+      res.send(result);
+    });
 
-
+    
     // Assuming you have already connected to the MongoDB database and initialized `reviewCollection`
-
+    
     app.get("/reviews", async (req, res) => {
       try {
         const reviews = await reviewCollection.find().toArray();

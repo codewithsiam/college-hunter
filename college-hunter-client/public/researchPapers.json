@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Arts Faculty Journal",
+        "link": "http://journal.library.du.ac.bd/index.php?journal=afj",
+        "about": "The goal of this journal system is to increase the visibility to the participating journals, use and impact of the university's research publications by offering them to use through the university's own online journal system. The journal system consists of fulltext materials produced in the Dhaka University, covering the full range of academic journals of the University.",
+        "university": "Dhaka University"
+    },
+    {
+        "name": "Journal of Bio-Science",
+        "link": "https://www.banglajol.info/index.php/JBS",
+        "about": " Journal of Bio-Science published by the Institute of Biological Sciences, University of Rajshahi.",
+        "university": "Rajshahi University"
+    },
+    {
+        "name": "Graph Drawing Research Group",
+        "link": "https://cse.buet.ac.bd/research/group/gd/",
+        "about": "Graph Drawing and Information Visualization Laboratory Department of Computer Science and Engineering",
+        "university": "Bangladesh University of Engineering and Technology (BUET)"
+    },
+    {
+        "name": "Department of Chemistry, Faculty of Science,",
+        "link": "https://www.actapharmsci.com/abstract.php?id=610",
+        "about": "Microbial Efficacy and Two Step Synthesis of Uridine Derivatives with Spectral Characterization",
+        "university": "University of Chittagong"
+    },
+    {
+        "name": "Journal of Science",
+        "link": "https://www.juniv.edu/journal",
+        "about": "Inference for the Scale Parameter of the Class of Life-Time Distributions Using Transformed Chisquare Family",
+        "university": "Jahangirnagar University"
+    },
+    {
+        "name": "implistic fabrication of aniline and pyrrole-based poly(Ani-co-Py) for efficient photocatalytic performance and supercapacitors",
+        "link": "https://ku.ac.bd/publication-details/705",
+        "about": "Aniline (Ani) and pyrrole (Py) based copolymers (poly(Ani-co-Py)) were fabricated by varying the reaction time ranging from 4 to 8 h through chemical oxidative polymerization technique. The photocatalytic performance and the application as supercapacitors of prepared copolymers were assessed together with the studies of their morphological features.",
+        "university": "Khulna University"
+    }
+]
