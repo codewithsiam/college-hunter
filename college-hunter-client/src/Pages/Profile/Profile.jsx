@@ -25,10 +25,10 @@ const Profile = () => {
     }, [dbUser, setValue]);
 
 
-    console.log("sdf", user)
+    // console.log("sdf", user)
 
     const onSubmit = (data) => {
-        console.log('Form data:', data);
+        // console.log('Form data:', data);
 
         Swal.fire({
             title: 'Are you sure?',
@@ -53,7 +53,7 @@ const Profile = () => {
                         },
                     })
                     .then((response) => {
-                        console.log(response.data);
+                        // console.log(response.data);
                         if (response.data.success) {
                             reset(); 
                             refetch();

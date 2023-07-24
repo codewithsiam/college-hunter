@@ -3,39 +3,18 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 import useProfile from '../../Hooks/useProfile';
 import { useForm } from 'react-hook-form';
+import useAdmissions from '../../Hooks/useAdmissions';
 
 const MyCollege = () => {
     const { user } = useContext(AuthContext);
-    const [applications, setApplications] = useState([]);
+    // const [applications, setApplications] = useState([]);
+    const [applications, isLoading] = useAdmissions();
     const [loader, setLoader] = useState(true);
     const { handleSubmit, register, reset } = useForm();
     const [dbUser] = useProfile();
     const [selectedCollege, setSelectdCollege] = useState([])
 
-    useEffect(() => {
-        const fetchApplications = async () => {
-            try {
-                if (user?.email) {
-                    const response = await fetch(
-                        `${import.meta.env.VITE_SERVER_BASE_URL}/admissions?email=${user?.email}`
-                    );
-                    const data = await response.json();
-                    setApplications(data);
-                }
-                setLoader(false);
-            } catch (error) {
-                console.error(error);
-                setLoader(false);
-            }
-        };
-
-
-        if (user) {
-            fetchApplications();
-        }
-    }, [user]);
-
-    console.log('sfsdf', dbUser[0]);
+    console.log('loader',isLoading)
 
     const handleFeedback = (cls) => {
         setSelectdCollege(cls);
@@ -46,13 +25,13 @@ const MyCollege = () => {
     const onSubmit = (data) => {
 
         const feedBackData = {
-            candidateName: dbUser[0]?.name,
+            candidateName: dbUser[0]?.name || "unknown",
             candidateEmail: user?.email,
-            collegeName: selectedCollege?.collegeName,
-            collegeId: selectedCollege?.collegeId,
-            collegeImage: selectedCollege?.image,
+            collegeName: selectedCollege?.collegeName || "",
+            collegeId: selectedCollege?.collegeId || "",
+            collegeImage: selectedCollege?.image || "",
             review: data.review,
-            rating: data.rating,
+            rating: data.rating || 5,
         };
 
 
@@ -87,7 +66,7 @@ const MyCollege = () => {
     return (
         <div>
             <h1 className="text-4xl font-bold text-center mt-5 mb-16 ">My Colleges</h1>
-            {!loader && user && applications.length > 0 ? (
+            {isLoading && user && applications.length > 0 ? (
                 <div className='w-11/12 mx-auto'>
 
                     <div>
@@ -119,7 +98,7 @@ const MyCollege = () => {
                                                             <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
                                                         </div>
                                                     </div>
-                                                    <div>
+                                                     <div>
                                                         <div className="font-bold">{app?.collegeName}</div>
                                                         <div className="text-sm opacity-50">{app?.subject}</div>
                                                     </div>
@@ -144,7 +123,7 @@ const MyCollege = () => {
                     </div>
                  
                 </div>
-            ) : loader ? (
+            ) : isLoading ? (
                 <p>Loading...</p>
             ) : (
                 <p>No applications found.</p>

@@ -1,12 +1,35 @@
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const express = require("express");
 const cors = require("cors");
+const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 5000;
 // middleware
 app.use(cors());
 app.use(express.json());
+
+// verify jwt token
+const verifyJWT = (req, res, next) => {
+  const authorization = req.headers.authorization;
+  if (!authorization) {
+    return res
+      .status(401)
+      .send({ error: true, message: "unauthorized access" });
+  }
+  // bearer token
+  const token = authorization.split(" ")[1];
+
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
+    if (err) {
+      return res
+        .status(401)
+        .send({ error: true, message: "unauthorized access" });
+    }
+    req.decoded = decoded;
+    next();
+  });
+};
 
 // const uri = "mongodb://0.0.0.0:27017";
 
@@ -35,27 +58,38 @@ async function run() {
       .db("collegeHunter")
       .collection("admission");
     const reviewCollection = client.db("collegeHunter").collection("reviews");
-    const researchsCollection = client.db("collegeHunter").collection("researchPapers");
+    const researchsCollection = client
+      .db("collegeHunter")
+      .collection("researchPapers");
 
     const indexKey = { collegeName: 1 };
     const indexOptions = { name: "nameSearch" };
 
     // const result =  await toysCollection.createIndex(indexKey, indexOptions);
 
+    // jwt post -------------------------------------------------------
+    app.post("/jwt", (req, res) => {
+      const user = req.body;
+      const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
+        expiresIn: "24h",
+      });
 
-        // is admin
-        app.get("/users/admin/:email", async (req, res) => {
-          const email = req.params.email;
-    
-          // if (req.decoded.email !== email) {
-          //   return res.send({ admin: false });
-          // }
-    
-          const query = { email: email };
-          const user = await userCollection.findOne(query);
-          const result = { admin: user?.role === "admin" };
-          res.send(result);
-        });
+      res.send({ token });
+    });
+
+    // is admin
+    app.get("/users/admin/:email", async (req, res) => {
+      const email = req.params.email;
+
+      // if (req.decoded.email !== email) {
+      //   return res.send({ admin: false });
+      // }
+
+      const query = { email: email };
+      const user = await userCollection.findOne(query);
+      const result = { admin: user?.role === "admin" };
+      res.send(result);
+    });
 
     // operations
     // all college with search
@@ -78,7 +112,7 @@ async function run() {
 
     app.get("/college/:id", async (req, res) => {
       const id = req.params.id;
-      console.log(id);
+      // console.log(id);
       const query = { _id: new ObjectId(id) };
       // here option can be added
       const result = await collegeCollection.findOne(query);
@@ -86,14 +120,27 @@ async function run() {
     });
 
     app.post("/admissions", async (req, res) => {
+
+      // const email = req.query.email;
+
+      // if (req.decoded.email !== email) {
+      //   return res.status(403).send({ error: true, message: "Unauthorized" });
+      // }
+
       const collegeData = req.body;
+      // console.log('sdfsdf',collegeData)
       const result = await admissionCollection.insertOne(collegeData);
       res.send(result);
     });
 
-    app.get("/admissions", async (req, res) => {
+    app.get("/admissions", verifyJWT, async (req, res) => {
       const email = req.query.email;
-      console.log(email);
+      // console.log(email);
+
+      if (req.decoded.email !== email) {
+        return res.status(403).send({ error: true, message: "Unauthorized" });
+      }
+
       const filter = { candidateEmail: email };
       const sort = { createdAt: -1 };
       const result = await admissionCollection
@@ -115,12 +162,12 @@ async function run() {
       const result = await userCollection.find().toArray();
       res.send(result);
     });
-    
+
     app.put("/users/profile", async (req, res) => {
       const email = req.query.email;
-      console.log(email);
+      // console.log(email);
       const data = req.body.userData;
-      console.log(data);
+      // console.log(data);
       const filter = { email: email };
       const updateDoc = {
         $set: {
@@ -129,7 +176,7 @@ async function run() {
           address: data?.address,
         },
       };
-      
+
       const result = await userCollection.updateOne(filter, updateDoc);
       if (result.modifiedCount > 0) {
         return res.send({
@@ -138,16 +185,16 @@ async function run() {
         });
       } else {
         return res
-        .status(500)
-        .send({ success: false, message: "Failed to update profile." });
+          .status(500)
+          .send({ success: false, message: "Failed to update profile." });
       }
     });
-    
+
     app.post("/users", async (req, res) => {
       const user = req.body;
       // console.log(user);
       const query = { email: user.email };
-      
+
       const existingUser = await userCollection.findOne(query);
       if (existingUser) {
         return res.send({ message: "User already exists" });
@@ -156,7 +203,7 @@ async function run() {
         res.send(result);
       }
     });
-    
+
     app.patch("/users/role", async (req, res) => {
       const id = req.query.id;
       const role = req.query.role;
@@ -166,26 +213,25 @@ async function run() {
           role: `${role}`,
         },
       };
-      
+
       const result = await userCollection.updateOne(filter, updateDoc);
       res.send(result);
     });
-    
+
     app.delete("/users", async (req, res) => {
       const id = req.query.id;
       const query = { _id: new ObjectId(id) };
       const result = await userCollection.deleteOne(query);
       res.send(result);
     });
-    
+
     app.get("/researchPapers", async (req, res) => {
       const result = await researchsCollection.find().toArray();
       res.send(result);
     });
 
-    
     // Assuming you have already connected to the MongoDB database and initialized `reviewCollection`
-    
+
     app.get("/reviews", async (req, res) => {
       try {
         const reviews = await reviewCollection.find().toArray();
@@ -198,7 +244,7 @@ async function run() {
 
     app.post("/review", async (req, res) => {
       const data = req.body;
-
+//  console.log(data);
       const filter = { candidateEmail: data?.candidateEmail };
       const exist = await reviewCollection.findOne(filter);
       if (exist) {
@@ -209,10 +255,10 @@ async function run() {
           },
         };
         const result = await reviewCollection.updateOne(filter, updateDoc);
-        res.send(result);
+        return res.send(result);
       } else {
         const result = await reviewCollection.insertOne(data);
-        res.send(result);
+        return res.send(result);
       }
     });
 

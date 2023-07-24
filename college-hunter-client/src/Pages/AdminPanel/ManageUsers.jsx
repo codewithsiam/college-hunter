@@ -9,7 +9,7 @@ const ManageUsers = () => {
     const [users, refetch] = useUsers();
     const [isAdmin, isAdminLoading] = useAdmin();
     const [profile] = useProfile();
-    console.log('admin', profile);
+    // console.log('admin', profile);
 
     const handleChangeRole = (user, role) => {
         // const token = localStorage.getItem('access-token');

@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile, signOut, signInWithPopup, GoogleAuthProvider, sendPasswordResetEmail } from "firebase/auth";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 
@@ -38,19 +39,21 @@ const AuthProvider = ({children}) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             setLoading(false);
-            console.log('current user', currentUser);
+            // console.log('current user', currentUser);
+            // console.log('current user', user);
              // get and set token
-            //  if(currentUser){
-            //     axios.post('https://sports-zone-server.vercel.app/jwt', {email: currentUser.email})
-            //     .then(data =>{
-            //         // console.log('axios data ',data)
-            //         localStorage.setItem('access-token', data.data.token)
-            //         setLoading(false);
-            //     })
-            // }
-            // else{
-            //     localStorage.removeItem('access-token')
-            // }
+             if(currentUser){
+                // console.log('inside the user', user);
+                axios.post(`${import.meta.env.VITE_SERVER_BASE_URL}/jwt`, {email: currentUser.email})
+                .then(data =>{
+                    // console.log('axios data ',data)
+                    localStorage.setItem('access-token', data.data.token)
+                    setLoading(false);
+                })
+            }
+            else{
+                localStorage.removeItem('access-token')
+            }
  
         });
         return () => {

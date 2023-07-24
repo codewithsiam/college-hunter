@@ -22,7 +22,7 @@ const CollegeDetails = () => {
             });
     }, [collegeId]);
 
-    console.log("average", averageRating, "college id", collegeId);
+    // console.log("average", averageRating, "college id", collegeId);
 
     return (
         <div>

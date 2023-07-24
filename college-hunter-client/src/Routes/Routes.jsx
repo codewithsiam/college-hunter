@@ -51,7 +51,7 @@ const router = createBrowserRouter([
             {
                 path: 'admission',
                 element: <Admission></Admission>,
-                loader: () => fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/allColleges`)
+                // loader: () => fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/allColleges`)
             },
             {
                 path: 'myCollege',

@@ -4,12 +4,16 @@ import { AuthContext } from "../Providers/AuthProvider";
 
 const useAdmissions = () => {
     const {user, loading} = useContext(AuthContext);
-    // const token = localStorage.getItem('access-token');
+    const token = localStorage.getItem('access-token');
     const {data: admissions = [], isLoading, refetch} = useQuery({
         enabled: !loading && !!user?.email,
         queryKey: ['admissions'],
         queryFn: async() => {
-            const res = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/admissions?email=${user?.email}`);
+            const res = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/admissions?email=${user?.email}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`, 
+                  },
+            }); 
             return res.json();
         }
     })
