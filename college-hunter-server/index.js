@@ -170,6 +170,14 @@ async function run() {
       res.send(result);
     });
 
+    app.delete("/users", async (req, res) => {
+      const id = req.query.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await userCollection.deleteOne(query);
+      res.send(result);
+    });
+
+
     // Assuming you have already connected to the MongoDB database and initialized `reviewCollection`
 
     app.get("/reviews", async (req, res) => {

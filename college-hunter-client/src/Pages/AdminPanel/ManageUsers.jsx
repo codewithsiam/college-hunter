@@ -57,13 +57,13 @@ const ManageUsers = () => {
     }
 
     const handleSwalConfirm = (user) => {
-        const token = localStorage.getItem('access-token');
-        const url = `https://sports-zone-server.vercel.app/users?id=${user._id}`;
+        // const token = localStorage.getItem('access-token');
+        const url = `${import.meta.env.VITE_SERVER_BASE_URL}/users?id=${user._id}`;
         fetch(url, {
             method: 'DELETE',
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
+            // headers: {
+            //     Authorization: `Bearer ${token}`
+            // }
         })
             .then(res => res.json())
             .then(data => {
